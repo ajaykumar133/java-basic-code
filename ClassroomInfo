@@ -49,7 +49,7 @@ public class ClassroomInfo {
         }
         else
         {
-            System.out.println("The student name for Roll no. "+rollNoToBeSearched+"is :"+names[rollNoToBeSearched-1]);
+            System.out.println("The student name for Roll no. "+rollNoToBeSearched+" is :"+names[rollNoToBeSearched-1]);
         }
 
     }
