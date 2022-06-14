@@ -1,0 +1,81 @@
+import java.util.*;
+
+public class ClassroomInfo {
+
+    public void allStudents(String[] names, int lengthOfArray)
+    {   
+        System.out.println("Following are the students in the class:");
+        for(int i=0; i<lengthOfArray; i++)
+        {
+            System.out.println("Roll no."+i+" is "+names[i]);
+        }
+    }
+
+    public void searchByName(String[] names, int lengthOfArray)
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the name of the student to be searched");
+        String nameToBeSearched = sc.next();
+
+        int index = -1;
+        for(int i=0; i<lengthOfArray; i++)
+        {
+            if(names[i].equals(nameToBeSearched))
+            {
+                index = i;
+                break;
+            }
+        }
+
+        if(index == -1)
+        {
+            System.out.println("The student is not in the class");
+        }
+        else
+        {
+            System.out.println("The student is in the class at roll number :"+(index+1));
+        }
+    }
+
+    public void searchByRollNO(String[] names, int lengthOfArray)
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the roll number of the student to be searched");
+        int rollNoToBeSearched = sc.nextInt();
+
+        if(rollNoToBeSearched > lengthOfArray)
+        {
+            System.out.println("The student is not in the class");
+        }
+        else
+        {
+            System.out.println("The student name for Roll no. "+rollNoToBeSearched+"is :"+names[rollNoToBeSearched-1]);
+        }
+
+    }
+
+
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);    
+        System.out.println("Enter the number of students in the class");
+        int lengthOfArray = sc.nextInt();   // defining the length of the array
+
+        String names[] = new String[lengthOfArray];  // defining the array
+
+        for(int i=0; i<lengthOfArray; i++)      // looping through the array and taking the input from the user
+        {
+            System.out.println("Enter the name of student for roll no."+(i+1));
+            names[i] = sc.next();
+        }
+
+        ClassroomInfo obj = new ClassroomInfo();
+
+        obj.allStudents(names, lengthOfArray);
+        obj.searchByName(names, lengthOfArray);
+        obj.searchByRollNO(names, lengthOfArray);
+        
+        
+    }
+}
