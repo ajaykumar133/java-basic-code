@@ -1,0 +1,59 @@
+/*
+You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent houses have security systems connected and it will automatically contact the police if two adjacent houses were broken into on the same night.
+Given an integer array nums representing the amount of money of each house, return the maximum amount of money you can rob tonight without alerting the police.
+Input: nums = [2,7,9,3,1]
+Output: 12
+Explanation: Rob house 1 (money = 2), rob house 3 (money = 9) and rob house 5 (money = 1).
+Total amount you can rob = 2 + 9 + 1 = 12.
+*/
+
+import java.util.*;
+
+class robbers{
+
+public static void main(String[] args)
+{
+    Scanner sc = new Scanner(System.in);
+    System.out.print("Enter the number of houses in socitey :");
+    int houses = sc.nextInt();
+
+    int arrHouse[] = new int[houses];
+    
+    int i,amount,totalOdd=0,totalEven=0;
+
+    for(i=0;i<houses;i++){
+        
+            System.out.print("Enter the amount of money in house number "+(i+1)+":");
+            amount = sc.nextInt();
+            arrHouse[i] = amount;    
+    }
+        
+    System.out.println(Arrays.toString(arrHouse));  
+      
+    for(i=0;i<houses;i++)
+    {
+        if(i%2 == 0)
+        {
+            totalOdd += arrHouse[i]; // as we are taking odd house_number
+        }
+        else{
+            totalEven += arrHouse[i]; // as we are taking even house_number
+        }
+    }
+
+    if(totalOdd > totalEven)
+    {
+        System.out.println("Robbers will rob in odd numbered houses and get a amount of "+totalOdd);
+    }
+    else if(totalOdd < totalEven)
+    {
+        System.out.println("Robbers will rob in even numbered house sand get a amount of "+totalEven);
+    }
+    else
+    {
+        System.out.println("Both odd and even numbered houses have equal amount of money");
+    }
+
+}
+
+}
